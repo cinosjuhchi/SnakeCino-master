@@ -23,6 +23,36 @@ window.addEventListener('keydown', e => {
     }
 })
 
+window.addEventListener('keydown', e => {
+    switch (e.key) {
+        case 'ArrowUp':
+        case 'w':
+        case 'W':
+            if (lastInputDirection.s !== 0) break;
+            inputDirection = { c: 0, s: -1 };
+            break;
+        case 'ArrowDown':
+        case 's':
+        case 'S':
+            if (lastInputDirection.s !== 0) break;
+            inputDirection = { c: 0, s: 1 };
+            break;
+        case 'ArrowLeft':
+        case 'a':
+        case 'A':
+            if (lastInputDirection.c !== 0) break;
+            inputDirection = { c: -1, s: 0 };
+            break;
+        case 'ArrowRight':
+        case 'd':
+        case 'D':
+            if (lastInputDirection.c !== 0) break;
+            inputDirection = { c: 1, s: 0 };
+            break;
+    }
+});
+
+
 var startX = 0;
 var startY = 0;
 var distX = 0;

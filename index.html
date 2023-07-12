@@ -11,6 +11,7 @@
       body{
         background-color: #000000;
         overflow: hidden;
+        width: 100vw;
         font-family: 'Montserrat', sans-serif;
         font-family: 'Permanent Marker', cursive;
         font-family: 'Poppins', sans-serif;
@@ -60,6 +61,31 @@
         color: #fff;
         opacity: 0.6;
       }
+      .container2{
+        width: 100vw;
+        /* overflow: hidden; */
+        height: 100vh;
+        /* z-index: 999; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #000000;
+        
+      }
+      
+
+      .loading{
+        font-size: 62px; 
+      }
+
+      .roundLog{
+        font-size: 32px;
+      }
+      .roundLogE{
+        font-size: 32px;
+      }
+      
 
       @media screen and (max-width: 478px) {
         body{
@@ -72,11 +98,33 @@
         .play{
           font-size: 24px;
         }
+        
+      }
+
+      .load{
+        height: 0;
+        transition: all 1s ease-in-out;
+        overflow: hidden;
+      }
+
+      .loadingSquare{
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+        background-color: #90A9B7;
+        box-shadow: -3px 3px 41px 28px rgba(203, 216, 212, 0.2);
+        -webkit-box-shadow: -3px 3px 41px 28px rgba(203, 216, 212, 0.2);
+        -moz-box-shadow: -3px 3px 41px 28px rgba(203, 216, 212, 0.2);
+
       }
       
     </style>
   </head>
   <body>
+    <div class="container2" id="container2">
+      <h1 class="roundLog text-white"></h1>
+      <h1 class="roundLogE text-white">Memuat Data..</h1>
+    </div>
     <div class="container-fluid">
       <div class="d-flex justify-content-center align-items-center vh-100 flex-column">
         <h1 class="header">SnakeCino</h1>
@@ -91,6 +139,55 @@
         <h3 class="copyright mt-3">©Copyright by Cino Desu</h3>
       </div>
     </div>
+    <audio src="moon.mp3" autoplay="true" loop></audio>
+    <script type="module">
+      const loading = document.getElementById('container2');
+      const header = document.getElementById('load');
+      const loading2 = document.getElementById('container3');
+      // setTimeout(() => {
+      //   loading.classList.add('load');
+      // }, 7000);
+      
+      var updates = 0
+      let progressLogEl = document.getElementById('progress')
+      let updateLogEl = document.getElementById('update')
+
+      let roundLogEl = document.querySelector('.roundLog') 
+      let roundLog = document.querySelector('.roundLogE') 
+      let animation = anime({
+        targets: roundLogEl,
+        innerHTML: [0,100],
+        easing: 'easeInOutSine',
+        duration: 11100,
+        round: 1
+        
+        
+  }
+      );
+
+      setTimeout(() => {
+        roundLog.textContent = "Data berhasil dimuat"
+        setTimeout(() => {
+        loading.classList.add('load')
+      }, 4000);
+      }, 11100);
+
+      let animationCirlce = anime({
+        targets: '#death',
+        translateX: '100vw',
+        // delay: 500,
+        duration: 3500,
+        direction: 'alternate',
+        loop: 1,
+        easing: 'easeInOutCirc'
+  }
+      );
+      
+      
+      // import anime from 'animejs/lib/anime.es.js';
+      
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>

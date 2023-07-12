@@ -73,6 +73,19 @@
     opacity: 0;
 }
 
+.dCino{
+        font-family: 'Poppins', sans-serif;
+        background-color: #000000;
+        border: 3px solid #0eff0a3b;
+        color: #0EFF0A;
+        font-size: 28px;
+        transition: all 0.6s ease-out;
+        font-style: normal;
+        font-weight: 700;
+        margin-left: 15px;
+        line-height: normal;
+}
+
 @media screen and (max-width: 478px) {
     body{
         width: 100%;
@@ -97,6 +110,10 @@
         color: #ccc;
     }
 
+    .dCino{
+        margin-top: 20px;
+    }
+
 }
 
     </style>
@@ -106,7 +123,7 @@
         <div class="row">
             <h1 id="score" style="color: #ccc;" class="score"></h1>
             <div id="game-board"></div>
-            <h1 class="copyright" style="color: #ccc;">Made by Inlogcy</h1>
+            <button class="dCino" onclick="document.location.href='level.html'">Level</button>
         </div>
     </div>
     <script>
@@ -119,9 +136,9 @@
         }else if(value === 'hard'){
             textD.innerHTML = 'Hard';
         }
-        if (window.close) {
-            localStorage.removeItem('value');    
-        }
+        // if (window.close) {
+        //     localStorage.removeItem('value');    
+        // }
         
     </script>
     <script src="cino.js" defer type="module"></script>

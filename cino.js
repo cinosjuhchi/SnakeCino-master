@@ -1,10 +1,13 @@
 import{ update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from './snake.js'
 import{ update as updateFood, draw as drawFood } from './food.js'
+import { score } from "./score.js";
 import { outsideGrid } from './grid.js'
 let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.getElementById('game-board')
 const levelBoard = document.getElementById('score')
+let Spd
+let total
 
 function main(currentTime){
 
@@ -18,6 +21,7 @@ function main(currentTime){
             imageAlt: 'Kamu gagal :(',
           }).then((result) => {
             if (result.isConfirmed) {
+              // Spd = levelBoard.textContent
               window.location = '/snake.html'
             }
           })
